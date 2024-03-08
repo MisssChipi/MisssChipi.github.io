@@ -1,0 +1,17 @@
+body{
+    background-color: white!important;
+}
+button{
+    width: auto!important;
+}
+#album{
+    height: 400px;
+    margin: 3rem;
+}
+.imagen{
+    height: 300px;
+    width: auto!important;
+}
+footer{
+    height: 100px!important;
+}
