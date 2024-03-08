@@ -1,8 +1,9 @@
-variable_album=document.getElementById('album');
-function CambiarColor(){
-    console.log(document.getElementById('album'));
-    variable_album.style.color="white";
-    document.body.style.backgroundColor="black";
+function cambiarColor(){
+    console.log(document.getElementsByClassName("album"));
+    album=document.getElementsByClassName('album');
+    album[0].style.backgroundColor="black";
+    album[0].style.color="white";
+    document.body.style.backgroundColor="#202021";
 }
 function cambiarTamano() {
     var imagen = document.getElementsByClassName("imagen");
