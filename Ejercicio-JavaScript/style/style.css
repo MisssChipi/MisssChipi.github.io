@@ -1,12 +1,15 @@
 body{
-    background-color: white!important;
+    background-color: white;
 }
 button{
     width: auto!important;
 }
-#album{
-    height: 400px;
+.album{
+    height: auto;
     margin: 3rem;
+    background-color: white;
+    padding: 2rem;
+    border-radius: 30px;
 }
 .imagen{
     height: 300px;
