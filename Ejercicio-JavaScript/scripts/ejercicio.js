@@ -1,6 +1,6 @@
 function cambiarColor(){
     console.log(document.getElementsByClassName("album"));
-    album=document.getElementsByClassName('album');
+    var album=document.getElementsByClassName('album');
     album[0].style.backgroundColor="black";
     album[0].style.color="white";
     document.body.style.backgroundColor="#202021";
