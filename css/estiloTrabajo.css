@@ -1,0 +1,66 @@
+@font-face {
+    font-family: 'Tiny';
+    src: url('../assets/fonts/webfontsTiny/TINY5x3-140.woff') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'NectoMono';
+    src: url('../assets/fonts/Web/NectoMono-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+h1{
+    font-size: 6rem;
+}
+section h1{
+    font-family: 'Tiny';
+    margin: 0px;
+}
+#mariana{
+    font-family: 'Tiny';
+    font-size: 5rem;
+    color: #000500;
+    line-height: 1rem;
+}
+.navbar{
+    
+    width: 100%;
+    height: 30px;
+    
+
+}
+.nav-cont{
+    list-style-type: none;
+    margin-right: 20px;  
+}
+.nav-item{
+    display: inline;
+    float: right;
+    padding: 10px;
+
+}
+
+html{
+  background-color:rgb(213, 214, 234);
+  font-family: 'NectoMono';
+}
+.mt-5{
+    margin-top: 2rem;
+}
+.container{
+    margin: 30px;
+    display: flexbox;
+}
+
+@media screen and (max-width: 768px) {
+    
+}
+
+
+@media screen and (min-width: 769px) and (max-width: 1224px) {
+  
+}
+@media screen and (min-width: 1225px) {
+
+  }
