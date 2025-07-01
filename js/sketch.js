@@ -33,12 +33,9 @@ function preload(){
   jetBrains = loadFont("fonts/JetBrainsMono[wght].ttf");
 }
 
-function esMovil() {
-  return true; // fuerza modo móvil para pruebas
-  // return /Mobi|Android/i.test(navigator.userAgent) || window.innerWidth < 768;
-}
 
-console.log(esMovil());
+
+
 
 function setup() {
   actualizarCanvas();
@@ -130,7 +127,7 @@ function draw() {
       color_con_alpha.setAlpha(alpha);
       fill(color_con_alpha);
       
-      text(c, i * escala, j * escala * input_linea.value);
+      text(c, i * escala, j * escala * 1);
     }
   }
 }
@@ -141,11 +138,8 @@ let escondido = true;
 function actualizarCanvas(contenedor = contenedor_efecto) {
   const ancho = contenedor.clientWidth;
   let alto;
-  if( esMovil()){
-    alto = (16 / 9) * ancho;
-  } else {
-    alto = (4 / 6)* ancho;
-  }
+  alto = (4 / 6) * ancho;
+ 
 
   columnas = floor(ancho / escala);
   filas = floor(alto / escala);
@@ -153,7 +147,6 @@ function actualizarCanvas(contenedor = contenedor_efecto) {
   if (!canvas) {
     canvas = createCanvas(columnas * escala, filas * escala);
     canvas.parent("ascii");
-    console.log("16/9");
   } else {
     resizeCanvas(columnas * escala, filas * escala);
   }
