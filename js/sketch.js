@@ -138,8 +138,9 @@ let escondido = true;
 function actualizarCanvas(contenedor = contenedor_efecto) {
   const ancho = contenedor.clientWidth;
   let alto;
-  alto = (4 / 6) * ancho;
- 
+  
+    alto = (4 / 6)* ancho;
+  
 
   columnas = floor(ancho / escala);
   filas = floor(alto / escala);
