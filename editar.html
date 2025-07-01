@@ -32,21 +32,43 @@
         <div id="contenedor_efecto">
             <div id="herramientas_imagen">
                 <ul>
-                    <li><button>camara</button></li>
-                    
-                    <li><button id="boton_play" onclick="reanudar()">play</button></li>
-                    <li><button id="boton_pausa" onclick="pausar()">pausa</button></li>
+                    <li><button id="id_imagen_editar_valor">imagen</button></li>
                     <li><button onclick="descargar()">descargar imagen</button> </li>
+                    <li><button onclick="eliminar()">eliminar de la galería</button></li>
+                    <li><button onclick="guardar_edicion()">guardar edición</button></li>
                 </ul>
                 
             </div>
             <div id="contenedor_efecto_galeria">
-                <div id="ascii"></div>
+                <div id="ascii_editar">
+                    
+                </div>
+                <!-- <div id="barra_foto">
+                    <ul>
+                        <li id="bf_caracteres">"@#%+^-`"</li>
+                        
+                        <li id="bf_densidad">"10"
+                        </li>
+                        <li id="bf_peso">"100"</li>
+                        <li id="bf_tipografia">times new roman</li>
+                        
+                    </ul>
+                    <ul>
+                        
+                        <li id="bf_colorfondo">"#ffffff"
+                        </li>
+                        <li id="bf_colorefecto">"#000000"</li>
+                        
+                    </ul>
+                </div> -->
+                
             </div>
         </div>
 
         <div id="detalles_efectos">
             <h1>ascii</h1>
+            <input type="file" id="input_imagen" accept="image/*" style="display: none;">
+
             <form>
                 <ul id="formulario">
                     <h2>imagen</h2>
@@ -71,7 +93,7 @@
                     </li>
                     <li>
                         <label for="input_densidad">densidad</label>
-                        <input type="range" min="4" max="20" value="10" class="slider" id="input_densidad">
+                        <input type="range" min="4" max="20" value="4" class="slider" id="input_densidad">
                     </li>
                     <li>
                         <label for="input_caracteres">caracteres</label>
@@ -79,7 +101,7 @@
                     </li>
                     <li>
                         <label for="input_tamano">tamaño</label>
-                        <input type="range" min="1" max="10" step=".1" value="2" class="slider" id="input_tamano">
+                        <input type="range" min="1" max="10" step=".1"  class="slider" id="input_tamano">
                     </li>
                     <li>
                         <label for="input_linea">altura de línea</label>
@@ -107,8 +129,7 @@
     
 
     
-    <script src="js/sketch.js"></script>
-    <script src="js/index.js"></script>
+    <script src="js/editar.js"></script>
 </body>
 
 </html>

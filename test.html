@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Prueba de loadImage()</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.js"></script>
+  </head>
+  <body>
+    <script>
+      let img;
+
+      function preload() {
+        // Carga desde archivo local
+        img = loadImage("foto.png"); // Asegúrate de tener esta imagen en el mismo folder
+      }
+
+      function setup() {
+        createCanvas(400, 400);
+        image(img, 0, 0, width, height);
+      }
+    </script>
+  </body>
+</html>

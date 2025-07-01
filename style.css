@@ -1,272 +1,279 @@
 @font-face {
-    font-family: 'Tiny';
-    src: url('assets/fonts/webfontsTiny/TINY5x3-140.woff') format('woff2');
-    font-weight: normal;
-    font-style: normal;
+  font-family: JetBrains Mono;
+  src: url(fonts/JetBrainsMono[wght].ttf);
 }
 @font-face {
-    font-family: 'NectoMono';
-    src: url('../assets/fonts/Web/NectoMono-Regular.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: JetBrains Mono Italic;
+  src: url(fonts/JetBrainsMono-Italic[wght].ttf);
+}
+*{
+  font-family: JetBrains Mono;
 }
 html, body {
   margin: 0;
   padding: 0;
-  height: 100%;
-  font-family: 'NectoMono', sans-serif;
-}
-html{
-  background-color:rgb(213, 214, 234);
-  overflow: hidden;
-}
-.container {
-    display: flex;
-    height: 100vh;
-}
-.marquee:hover {
-    animation-play-state: paused;
-    color:#473BF0!important ;
-    
-    
-}
-@media screen and (max-width: 768px) {
-    canvas{
-      display: none;
-    }
-    html{
-      background-color: #000500;
-    }
-    .sidebar {
-        width: 50%; /* Ajusta el ancho de la barra lateral según tus necesidades */
-        background-color: rgb(213, 214, 234); /* Color de fondo de la barra lateral */
-        display: flex;
-        flex-direction: column; /* Asegura que el contenido adicional esté debajo del nombre */
-        align-items: center;
-        justify-content: center;
-        position: relative;
-        overflow: hidden; /* Oculta cualquier cosa fuera de los límites de la barra lateral */
-        padding-left: 20px;
-        
-    }
-
-    .main-content {
-        flex: 1; /* Esta propiedad hace que el contenido principal ocupe el espacio restante */
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end; /* Alinea el contenido principal en la parte inferior */
-        align-items: flex-end; /* Alinea el contenido principal a la derecha */
-        padding: 20px 20px 50px 20px;
-        text-align: right;
-    }
-
-    ul {
-        list-style: none;
-        padding: 0;
-    }
-
-    ul li {
-        margin-bottom: 10px;
-    }
-
-    ul li a {
-        text-decoration: none;
-        color: rgb(213, 214, 234); /* Color de los enlaces */
-    }
-
-    ul li a:hover {
-        color: #473BF0; /* Cambia este color según sea necesario */
-    }
-
-    .marquee {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start; /* Asegura que el contenido comience desde la parte superior */
-        align-items: center;
-        height: 80%; /* Ajusta el alto para dejar espacio al texto adicional */
-        animation: scroll-vertical 10s linear infinite;
-    }
-
-    .rotated-name {
-        transform: rotate(90deg);
-        white-space: nowrap; /* Evita que el nombre se divida en varias líneas */
-        font-family: 'Tiny';
-        font-size: 12rem;
-        padding: 20px 0; /* Ajusta el padding para un mejor loop */
-    }
-
-    .additional-info {
-        
-        padding: 20px 20px 0px 0px!important; /* Coloca el texto adicional al final del contenedor */
-        font-size: .9rem; /* Ajusta el tamaño del texto adicional según sea necesario */
-    }
-    #mariana{
-        margin-bottom: 0px;
-        font-size: 1.8rem;
-        
-    }
-    #diseñadora{
-        margin-top: 5px;
-        font-size: 1.2rem;
-        
-    }
-
-    @keyframes scroll-vertical {
-        0% {
-            transform: translateY(150%);
-        }
-        100% {
-            transform: translateY(-100%);
-        }
-    }
+  background-color: aliceblue;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1em;
+  line-height: .8em;
+  letter-spacing: .2em;
+  background-color: #0D0D0D;
 }
 
-
-@media screen and (min-width: 769px) and (max-width: 1224px) {
-  canvas {
-    mix-blend-mode: normal;
-    display: block;
-    position: absolute;
-    top: 250px;
-    left: -80px;
-    z-index: -1;
-    width: 300px;
-  }
-  .sidebar {
-    width: 100%; /* Cambia el ancho de la barra lateral al 100% del viewport */
-    height: 100vh; /* Ajusta la altura al 100% del viewport */
-    flex-direction: row; /* Cambia la dirección del flujo de los elementos a horizontal */
-    justify-content: space-between; /* Alinea los elementos horizontalmente y distribuye el espacio */
-    align-items: center; /* Alinea los elementos verticalmente al centro */
-    padding: 20px; /* Ajusta el relleno para dispositivos de tamaño de laptop */
-  }
-
-  .main-content {
-    flex: 1; /* Esta propiedad hace que el contenido principal ocupe el espacio restante */
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end; /* Alinea el contenido principal en la parte inferior */
-    align-items: flex-end; /* Alinea el contenido principal a la derecha */
-    padding: 20px 20px 50px 20px;
-  }
-  #mariana{
-    margin: 20px 0px 0px 20px;
-    font-family: 'Tiny';
-    font-size: 5rem;
-    color: #000500;
-    line-height: 1rem;
-  }
-  #diseñadora{
-    padding: 0px 0px 20px 20px;
-    font-size: 2rem;
-    color: #000500;
-    margin: 0;
-  }
-
-  .marquee {
-    display: none; /* Oculta la animación de marquesina en dispositivos de tamaño de laptop */
-  }
-
-  ul {
-    margin: 0; /* Elimina el margen de la lista de enlaces */
-  }
-
-  ul li {
-    display: inline-block; /* Muestra los elementos de la lista en línea */
-    margin-right: 20px; /* Agrega un margen entre los enlaces */
-    text-decoration: none;
-    
-  }
+#nav{
+  background-color: #0D0D0D;
+  height: 100px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+}
+#titulo{
+  width: 66%;
   
-  ul li a {
-    text-decoration: none;
-    color: rgb(0, 5, 0);
-  }
-  ul li a:hover {
-        color: #473BF0; /* Cambia este color según sea necesario */
-    }
-  ul li:last-child {
-    margin-right: 0; /* Elimina el margen del último elemento de la lista */
-  }
-  .additional-info{
-    margin-top: 100px;
-    font-size:10rem;
-    line-height: 6rem;
-  }
+  display:flex;
+  align-items: center;
+  
+  background-color: #BFBFBF;
+  
 }
-@media screen and (min-width: 1225px) {
-canvas {
-  mix-blend-mode: normal;
+#titulo h1{
+  font-size: 3em;
+  font-weight: 800;
+  color: #FF40F2;
+  margin-left: 45px;
+}
+#menu_desplegable{
+  width: 34%;
+  display: flex;
+  align-items: center;
+  background-color: #0D0D0D;
+}
+#menu_desplegable ul{
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  width: 100%;
+  justify-content: space-around;
+  
+}
+#menu_desplegable a{
+  text-decoration: none;
+  color: #BFBFBF;
+}
+#contenedor{
+  display: flex;
+  flex-direction: row;
+}
+#contenedor_efecto{
+  width: 66%;
+  
+  /* background-color: #FF40F2; */
+  
+}
+/* 
+background-color: #595959;*/
+#herramientas_imagen{
+  height: 50px;
+  background-color: #0D0D0D;
+
+}
+#herramientas_imagen ul{
+  display: flex;
+  padding: 0, 0, 0, 10;
+
+  margin: 0;
+  gap: 10px;
+  color: #BFBFBF;
+  align-items: center;
+  height: 100%;
+  font-size: 1em;
+  
+}
+#herramientas_imagen button{
+  background-color: transparent;
+  border: none;
+  color: #BFBFBF;
+  font-size: 1em;
+  padding: 0 10;
+  height: 50px;
+}
+#herramientas_imagen button:hover{
+  background-color: #595959;
+
+}
+#herramientas_imagen button:active{
+  background-color: #FF40F2;
+
+}
+#herramientas_imagen li{
+  list-style-type: none;
+  
+}
+#contenedor_efecto_galeria{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  /* height: 80vh; */
+  background-color: #0D0D0D;
+}
+#galeria_bar{
+  height: 80vh;
+  display: flex;
+  flex-wrap: wrap;
+  overflow-y: auto;
+  scrollbar-color: #bfbfbf25 transparent;
+}
+.boton{
+  background-color: transparent!;
+  border: none;
+  text-decoration: none;
+}
+#ascii{
+  width: 100%;
+}
+#ascii_editar {
+  width: 100%;
+}
+#ascii_editar img{
+  width: 100%;
+}
+#galeria_bar{
+  width: 20%;
+}
+#galeria_bar img{
+  width: 100%;
+}
+.crema{
+  color: #BFBFBF;
+}
+#detalles_efectos{
+  background-color: #0D0D0D;
+  color: #BFBFBF;
+  width: 34%;
+}
+#detalles_efectos h1{
+  margin-left: 40px;
+  margin-bottom: 30px;
+}
+#formulario h2{
+  font-size: 1em;
+  font-weight: 500;
+}
+#formulario label{
+  font-weight: 100;
+}
+#formulario li{
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-right: 30px;
+  align-items: center;
+  height: 30px;
+}
+#formulario input{
+  width: 100px;
+  
+}
+#formulario li:hover{
+  background-color: #bfbfbf25;
+}
+
+.slider{
+  -webkit-appearance: none;
+  width: 100%;
+  height: 5px;
+  background: #BFBFBF;
+  outline: none;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #595959;
+  cursor:cell;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  background: #04AA6D;
+  cursor: pointer;
+}
+#input_caracteres{
+  border: #FF40F2 solid 2px;
+  padding: 0;
+}
+#input_color_fondo{
+  border: none;
+}
+input[type="color" i]{
+  border: none;
+  background-color: #FF40F2;
+  color: transparent;
+  appearance: none;
+  padding: 0;
+  block-size: 25px;
+  
+}
+
+#contenedor_galeria {
+  width: 66%;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  background-color: #0D0D0D;
+  height: 78vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  gap: 0;
+  padding: 0;
+}
+
+#contenedor_galeria img {
+  width: 25%;
+  height: auto;
+  aspect-ratio: 1 / 1; 
+  object-fit: cover;  
   display: block;
-  position: absolute;
-  top: 300px;
-  z-index: -1;
-  width: 300px;
+}
+#contenedor_galeria img:hover{
+  opacity: 0.7;
 }
 
-
- .sidebar {
-        width: 80%; /* Cambia el ancho de la barra lateral al 100% del viewport */
-        height: 100vh; /* Ajusta la altura al 100% del viewport */
-        flex-direction: row; /* Cambia la dirección del flujo de los elementos a horizontal */
-        justify-content: space-between; /* Alinea los elementos horizontalmente y distribuye el espacio */
-        align-items: center; /* Alinea los elementos verticalmente al centro */
-        padding: 20px; /* Ajusta el relleno para dispositivos de tamaño de laptop */
-    }
-
-    .main-content {
-         flex: 1; /* Esta propiedad hace que el contenido principal ocupe el espacio restante */
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end; /* Alinea el contenido principal en la parte inferior */
-        align-items: flex-end; /* Alinea el contenido principal a la derecha */
-        padding: 20px 20px 50px 100px;
-    }
-    #mariana{
-        margin: 20px 0px 0px 20px;
-        font-family: 'Tiny';
-        font-size: 9rem;
-        color: #000500;
-        letter-spacing: -.3rem;
-    }
-     #mariana:hover {
-        color: #473BF0; /* Cambia este color según sea necesario */
-    }
-    #diseñadora{
-        padding: 0px 0px 20px 20px;
-        font-size: 2rem;
-        color: #000500;
-    }
-
-    .marquee {
-        display: none; /* Oculta la animación de marquesina en dispositivos de tamaño de laptop */
-    }
-
-    ul {
-        margin: 0; /* Elimina el margen de la lista de enlaces */
-    }
-
-    ul li {
-        display: inline-block; /* Muestra los elementos de la lista en línea */
-        margin-right: 20px; /* Agrega un margen entre los enlaces */
-        text-decoration: none;
-        
-    }
-    
-    ul li a {
-        text-decoration: none;
-        color: rgb(0, 5, 0);;
-    }
-
-    ul li:last-child {
-        margin-right: 0; /* Elimina el margen del último elemento de la lista */
-    }
-     ul li a:hover {
-        color: #473BF0; /* Cambia este color según sea necesario */
-    }
-    .additional-info{
-        
-        font-size:10rem;
-        line-height: 6rem;
-    }
-  }
+#detalles_imagen{
+  background-color: #0D0D0D;
+  color: #BFBFBF;
+  width: 34%;
+  
+}
+#barra_foto{
+  
+  width: 100%;
+}
+#barra_foto{
+  width: 100%;
+  background-color: #FF40F2;
+}
+#barra_foto ul{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  list-style-type: none;
+  align-content:stretch;
+  justify-content: center;
+  margin: 0px;
+  padding: 0px;
+}
+#barra_foto li{
+  height: 100%;
+  /* background-color: #04AA6D; */
+  padding: 5px;
+  flex-grow: 1;
+  text-align: center;
+}
+#bf_colorefecto, #bf_colorfondo{
+  background-color: #04AA6D;
+}
