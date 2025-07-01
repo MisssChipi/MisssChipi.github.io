@@ -4,11 +4,18 @@ let columnas, filas;
 let canvas;
 
 // DOM
+const nav = document.querySelector("#nav");
 const input_imagen = document.querySelector("#input_imagen");
 const boton_play = document.querySelector("#boton_play");
 const boton_pausa = document.querySelector("#boton_pausa");
-const contenedor_efecto_galeria = document.querySelector("#contenedor_efecto_galeria");
-const contenedor_efecto = document.querySelector("#ascii");
+const contenedor = document.querySelector("#contenedor");
+const contenedor_efecto =document.querySelector("#contenedor_efecto");
+const ascii = document.querySelector("#ascii");
+const pantalla_completa = document.querySelector("#fullscreen");
+const body = document.querySelector("body");
+const detalles_efectos = document.querySelector("#detalles_efectos");
+const formulario = document.querySelector("#formulario");
+const formulario_input = formulario.querySelectorAll(".formulario_input");
 
 // efecto
 const color_efecto = document.querySelector("#input_color");
@@ -33,33 +40,13 @@ function preload(){
   jetBrains = loadFont("fonts/JetBrainsMono[wght].ttf");
 }
 
-
-
-
-
 function setup() {
   actualizarCanvas();
-  const ancho = contenedor_efecto.clientWidth;
-  const alto = (4 / 6) * ancho;
-
-  columnas = floor(ancho / escala);
-  filas = floor(alto / escala);
-
-  canvas = createCanvas(columnas * escala, filas * escala);
-  canvas.parent("ascii");
-
-  video = createCapture(VIDEO);
-  video.size(columnas, filas);
-  video.hide();
-
   noStroke();
 }
 
-
-
 function draw() {
   video.loadPixels();
-
 
   //tipografia
   if(input_tipografia.value == 1){
@@ -85,22 +72,11 @@ function draw() {
 
   if(nuevaEscala !== escala){
     escala = nuevaEscala;
-
-    let contenedor_correcto;
-    
-    if(escondido){
-      contenedor_correcto = contenedor_efecto_galeria;
-      
-    } else{
-      contenedor_correcto = contenedor_efecto;
-
-    }
-    actualizarCanvas(contenedor_correcto);
+    actualizarCanvas();
     return;
   }
   
   background(color_fondo.value);
-  
 
   for (let j = 0; j < filas; j++) {
     for (let i = 0; i < columnas; i++) {
@@ -133,14 +109,13 @@ function draw() {
 }
 
 
-let escondido = true;
 
-function actualizarCanvas(contenedor = contenedor_efecto) {
+
+function actualizarCanvas(contenedor = ascii) {
   const ancho = contenedor.clientWidth;
+  console.log(contenedor.clientWidth);
   let alto;
-  
-    alto = (4 / 6)* ancho;
-  
+  alto = (4 / 6)* ancho;
 
   columnas = floor(ancho / escala);
   filas = floor(alto / escala);
@@ -176,6 +151,67 @@ function pausar(){
 function descargar(){
   saveCanvas('ascii', 'png');
 }
+let pantallaCompleta = false;
+function cambiarAPantallaCompleta(){
+  if(pantallaCompleta){
+    pantallaCompleta= false;
+    
+    pantalla_completa.innerHTML = "maximizar pantalla";
 
+    contenedor.style.display = "flex";
+    contenedor.style.flexDirection = "row";
 
+    contenedor_efecto.style.width = "66%";
+    nav.style.display = "flex";
+    nav.style.flexDirection = "row";
+
+    detalles_efectos.style.width = "34%";
+    detalles_efectos.style.position = "static";
+
+    formulario.style.display = "block";
+    detalles_efectos.style.opacity = "1";
+    // formulario.style.flexWrap = "wrap";
+    actualizarCanvas();
+
+  } else {
+    console.log("pantalla completa");
+    pantallaCompleta=true;
+
+    contenedor.style.display = "block";
+    contenedor.style.width = "100%";
+    contenedor_efecto.style.width = "100%";
+    nav.style.display = "none";
+    detalles_efectos.style.width = "25%";
+    pantalla_completa.innerHTML = "minimizar pantalla";
+
+    // formulario.style.display = "flex";
+    // formulario.style.flexWrap = "wrap";
+    // formulario.style.
+    // formulario.style.padding = "0px";
+    detalles_efectos.style.opacity = ".1";
+    // detalles_efectos.style.hover.backgroundColor = "black";
+
+    detalles_efectos.style.position = "absolute";
+    detalles_efectos.style.top = "50px";
+    detalles_efectos.style.right = "0px";
+    detalles_efectos.style.cursor = "move";
+    detalles_efectos.style.zIndex="10";
+    detalles_efectos.style.transition = ".5s";
+    
+    actualizarCanvas();
+    
+  }
+
+  let tiempoResize;
+  window.addEventListener("resize", () => {
+    clearTimeout(tiempoResize);
+    tiempoResize = setTimeout(() => {
+      actualizarCanvas();
+    }, 200); // espera 200ms después del último cambio
+  });
+
+  
+  
+
+}
 

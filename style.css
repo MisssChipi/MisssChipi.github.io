@@ -155,6 +155,10 @@ background-color: #595959;*/
   margin-left: 40px;
   margin-bottom: 30px;
 }
+#detalles_efectos:hover{
+  opacity: 1!important;
+  transition: .5s;
+}
 #formulario h2{
   font-size: 1em;
   font-weight: 500;
@@ -171,7 +175,7 @@ background-color: #595959;*/
   align-items: center;
   height: 30px;
 }
-#formulario input{
+.formulario_input{
   width: 100px;
   
 }
@@ -181,7 +185,7 @@ background-color: #595959;*/
 
 .slider{
   -webkit-appearance: none;
-  width: 100%;
+  /*width: 100%;*/
   height: 5px;
   background: #BFBFBF;
   outline: none;

@@ -37,6 +37,7 @@
                     <li><button id="boton_play" onclick="reanudar()">play</button></li>
                     <li><button id="boton_pausa" onclick="pausar()">pausa</button></li>
                     <li><button onclick="descargar()">descargar imagen</button> </li>
+                    <li><button id="fullscreen" onclick="cambiarAPantallaCompleta()">maximizar pantalla</button></li>
                 </ul>
                 
             </div>
@@ -46,58 +47,56 @@
         </div>
 
         <div id="detalles_efectos">
-            <h1>ascii</h1>
             <form>
                 <ul id="formulario">
-                    <h2>imagen</h2>
-                                  
+                    <h2>imagen</h2>   
                     <li>
                         <label for="input_brillo">brillo</label>
-                        <input type="range" min=".1" max="5" value="1" step=".1" class="slider" id="input_brillo">
+                        <input class="formulario_input slider" type="range" min=".1" max="5" value="1" step=".1"  id="input_brillo">
                     </li>
                     <li>
                         <label for="input_contraste">contraste</label>
-                        <input type="range" min="0" max="10" value="2" step=".1" class="slider" id="input_contraste">
+                        <input class="formulario_input slider" type="range" min="0" max="10" value="2" step=".1"  id="input_contraste">
                     </li>
                     
                     <h2>efecto</h2>
                     <li>
                         <label for="input_color">color</label>
-                        <input type="color" name="input_color" id="input_color">
+                        <input class="formulario_input" type="color" name="input_color" id="input_color">
                     </li>
                     <li>
                         <label for="input_opacidad">opacidad</label>
-                        <input type="range" min="0" max="255" value="255" step="1" class="slider" id="input_opacidad">
+                        <input class="formulario_input slider" type="range" min="0" max="255" value="255" step="1" id="input_opacidad">
                     </li>
                     <li>
                         <label for="input_densidad">densidad</label>
-                        <input type="range" min="4" max="20" value="10" class="slider" id="input_densidad">
+                        <input class="formulario_input slider" type="range" min="4" max="20" value="10"  id="input_densidad">
                     </li>
                     <li>
                         <label for="input_caracteres">caracteres</label>
-                        <input type="text" value="@#%+^-`" id="input_caracteres" name="input_caracteres">
+                        <input class="formulario_input" type="text" value="@#%+^-`" id="input_caracteres" name="input_caracteres">
                     </li>
                     <li>
                         <label for="input_tamano">tamaño</label>
-                        <input type="range" min="1" max="10" step=".1" value="2" class="slider" id="input_tamano">
+                        <input class="formulario_input slider" type="range" min="1" max="10" step=".1" value="2" id="input_tamano">
                     </li>
                     <!--<li>
                         <label for="input_linea">altura de línea</label>
-                        <input type="range" min=".5" max="10" value="1" step=".1" class="slider" id="input_linea">
+                        <input class="formulario_input" type="range" min=".5" max="10" value="1" step=".1" class="slider" id="input_linea">
                     </li>-->
                     <li>
                         <label for="input_peso">peso</label>
-                        <input type="range" min="100" max="700" value="100" step="10" class="slider" id="input_peso">
+                        <input class="formulario_input slider" type="range" min="100" max="700" value="100" step="10"  id="input_peso">
                     </li>
                     <li>
                         <label for="input_tipografia">tipografía</label>
-                        <input type="range" min="1" max="9" value="1" class="slider" id="input_tipografia">
+                        <input class="formulario_input slider" type="range" min="1" max="9" value="1"  id="input_tipografia">
                     </li>
 
                     <h2>fondo</h2>
                     <li>
                         <label for="input_color_fondo">color</label>
-                        <input type="color" name="input_color_fondo" id="input_color_fondo" value="#ffffff">
+                        <input class="formulario_input " type="color" name="input_color_fondo" id="input_color_fondo" value="#ffffff">
                     </li>
                 </ul>
             </form>
