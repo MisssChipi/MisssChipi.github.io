@@ -16,6 +16,7 @@ const body = document.querySelector("body");
 const detalles_efectos = document.querySelector("#detalles_efectos");
 const formulario = document.querySelector("#formulario");
 const formulario_input = formulario.querySelectorAll(".formulario_input");
+const herramientas_imagen = document.querySelector("#herramientas_imagen");
 
 // efecto
 const color_efecto = document.querySelector("#input_color");
@@ -39,6 +40,42 @@ let jetBrains;
 function preload(){
   jetBrains = loadFont("fonts/JetBrainsMono[wght].ttf");
 }
+
+async function usarCamara(deviceId) {
+    if(video){
+      video.remove();
+    }
+
+    const constraints ={
+      audio: false,
+      video: {
+        deviceId: { exact: deviceId }
+      }
+    };
+
+    video = createCapture(constraints,()=>{
+      console.log("Camara cambiada a:", deviceId);
+    });
+
+    video.size(columnas,filas);
+    video.hide();
+}
+
+const select = document.querySelector("#camSelect");
+navigator.mediaDevices.enumerateDevices().then(devices => {
+  devices
+  .filter(device => device.kind === "videoinput")
+  .forEach(device => {
+    const option = document.createElement("option");
+    option.value = device.deviceId;
+    option.text = device.label || `Cámara ${select.length + 1}`;
+    select.appendChild(option);
+  })
+});
+select.addEventListener("change", (event)=>{
+  usarCamara(event.target.value);
+})
+
 
 function setup() {
   actualizarCanvas();
@@ -113,7 +150,7 @@ function draw() {
 
 function actualizarCanvas(contenedor = ascii) {
   const ancho = contenedor.clientWidth;
-  console.log(contenedor.clientWidth);
+  //console.log(contenedor.clientWidth);
   let alto;
   alto = (4 / 6)* ancho;
 
@@ -128,7 +165,7 @@ function actualizarCanvas(contenedor = ascii) {
   }
 
   if (!video) {
-    video = createCapture(VIDEO);
+    video = createCapture({ video:true, audio: false});
     video.hide();
   }
 
@@ -154,7 +191,16 @@ function descargar(){
 let pantallaCompleta = false;
 function cambiarAPantallaCompleta(){
   if(pantallaCompleta){
-    pantallaCompleta= false;
+    if(document.exitFullscreen){
+      document.exitFullscreen();
+    }
+    herramientas_imagen.style.position = "static";
+    herramientas_imagen.style.width = "auto";
+    herramientas_imagen.style.opacity = "1";
+    herramientas_imagen.style.transition = ".2s";
+
+
+    pantallaCompleta = false;
     
     pantalla_completa.innerHTML = "maximizar pantalla";
 
@@ -174,7 +220,13 @@ function cambiarAPantallaCompleta(){
     actualizarCanvas();
 
   } else {
-    console.log("pantalla completa");
+    //console.log("pantalla completa");
+    herramientas_imagen.style.position = "absolute";
+    herramientas_imagen.style.width = "100%";
+    herramientas_imagen.style.opacity = "0";
+
+
+    contenedor.requestFullscreen();
     pantallaCompleta=true;
 
     contenedor.style.display = "block";
@@ -188,7 +240,7 @@ function cambiarAPantallaCompleta(){
     // formulario.style.flexWrap = "wrap";
     // formulario.style.
     // formulario.style.padding = "0px";
-    detalles_efectos.style.opacity = ".1";
+    detalles_efectos.style.opacity = "0";
     // detalles_efectos.style.hover.backgroundColor = "black";
 
     detalles_efectos.style.position = "absolute";
@@ -210,7 +262,6 @@ function cambiarAPantallaCompleta(){
     }, 200); // espera 200ms después del último cambio
   });
 
-  
   
 
 }

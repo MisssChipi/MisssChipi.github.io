@@ -77,6 +77,9 @@ background-color: #595959;*/
   background-color: #0D0D0D;
 
 }
+#herramientas_imagen:hover{
+  opacity: 1!important;
+}
 #herramientas_imagen ul{
   display: flex;
   padding: 0, 0, 0, 10;
