@@ -17,6 +17,8 @@ const detalles_efectos = document.querySelector("#detalles_efectos");
 const formulario = document.querySelector("#formulario");
 const formulario_input = formulario.querySelectorAll(".formulario_input");
 const herramientas_imagen = document.querySelector("#herramientas_imagen");
+const toggle_video_fondo = document.querySelector("#toggle_video_fondo");
+const toggle_color_video_filtro = document.querySelector("#toggle_color_video_filtro");
 
 // efecto
 const color_efecto = document.querySelector("#input_color");
@@ -102,7 +104,10 @@ function draw() {
     tipografia = "Yarndings 12";
   } 
 
-  drawingContext.font = `${input_grosor.value} ${escala * tamano_texto.value}px '${tipografia}'`;
+  textSize(escala*tamano_texto.value);
+  textFont(tipografia);
+  textStyle(BOLD);
+  textAlign(CENTER, CENTER);
 
   const nuevaEscala = input_densidad.value;
   densidad = input_caracteres.value;
@@ -121,6 +126,13 @@ function draw() {
       const r = video.pixels[pixelIndex + 0];
       const g = video.pixels[pixelIndex + 1];
       const b = video.pixels[pixelIndex + 2];
+
+      if(toggle_video_fondo.checked == true){
+        noStroke();
+        fill(r,g,b);
+        rect(i * escala, j * escala, escala, escala);
+      }
+      
       let avg = ((r + g + b) / 3);
 
       //brillo
@@ -138,9 +150,34 @@ function draw() {
       const alpha = input_opacidad.value;
       const color_con_alpha = color(hex);
       color_con_alpha.setAlpha(alpha);
-      fill(color_con_alpha);
       
-      text(c, i * escala, j * escala * 1);
+
+      if(toggle_color_video_filtro.checked == true){
+        const video_hex = color(r,g,b);
+        video_hex.setAlpha(alpha);
+        fill(video_hex);
+
+      } else {
+        fill(color_con_alpha);
+      }
+
+      // let hue = map(avg, 0, 255, 200, 360);
+      // colorMode(HSL);
+      // fill(hue, 80, 50, input_opacidad.value);
+      // colorMode(RGB);
+
+      // let c1 = color("#FF40F2");
+      // let c2 = color("#4d40ffff");
+
+      // if((i+j) % 2 === 0){
+      //   fill(c1);
+      // } else{
+      //   fill(c2);
+      // }
+
+      const x = i*escala + escala /2;
+      const y = j*escala + escala /2;
+      text(c, x, y);
     }
   }
 }

@@ -75,6 +75,9 @@ background-color: #595959;*/
 #herramientas_imagen{
   height: 50px;
   background-color: #0D0D0D;
+  overflow-y: hidden;
+  overflow-x: scroll;
+    scrollbar-color: #bfbfbf25 transparent;
 
 }
 #herramientas_imagen:hover{
