@@ -55,6 +55,11 @@
                     <li>
                         <label for="input_brillo">brillo</label>
                         <input class="formulario_input slider" type="range" min=".1" max="5" value="1" step=".1"  id="input_brillo">
+                        
+                    </li>
+                    <li>
+                        <label for="animacion_brillo">animar</label>
+                        <input type="checkbox" name="animacion_brillo" id="animacion_brillo">
                     </li>
                     <li>
                         <label for="input_contraste">contraste</label>
@@ -76,7 +81,7 @@
                     </li>
                     <li>
                         <label for="input_densidad">densidad</label>
-                        <input class="formulario_input slider" type="range" min="4" max="20" value="10"  id="input_densidad">
+                        <input class="formulario_input slider" type="range" min="10" max="50" value="10" step="1"  id="input_densidad">
                     </li>
                     <li>
                         <label for="input_caracteres">caracteres</label>
@@ -86,17 +91,13 @@
                         <label for="input_tamano">tamaño</label>
                         <input class="formulario_input slider" type="range" min="1" max="10" step=".1" value="2" id="input_tamano">
                     </li>
-                    <!--<li>
-                        <label for="input_linea">altura de línea</label>
-                        <input class="formulario_input" type="range" min=".5" max="10" value="1" step=".1" class="slider" id="input_linea">
-                    </li>-->
                     <li>
-                        <label for="input_peso">peso</label>
-                        <input class="formulario_input slider" type="range" min="100" max="700" value="100" step="10"  id="input_peso">
+                        <label for="input_peso">estilo</label>
+                        <input class="formulario_input slider" type="range" min="0" max="3" value="0" step="1"  id="input_peso">
                     </li>
                     <li>
                         <label for="input_tipografia">tipografía</label>
-                        <input class="formulario_input slider" type="range" min="1" max="9" value="1"  id="input_tipografia">
+                        <input class="formulario_input slider" type="range" min="1" max="9" value="2"  id="input_tipografia">
                     </li>
 
                     <h2>fondo</h2>
@@ -107,6 +108,11 @@
                     <li>
                         <label for="input_color_fondo">color</label>
                         <input class="formulario_input " type="color" name="input_color_fondo" id="input_color_fondo" value="#ffffff">
+                    </li>
+                    <h2>animación</h2>
+                    <li>
+                        <label for="toggle_alternar_colores">alternar colores</label>
+                        <input type="checkbox" name="toggle_alternar_colores" id="toggle_alternar_colores">
                     </li>
                 </ul>
             </form>

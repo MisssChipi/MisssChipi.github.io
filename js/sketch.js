@@ -1,5 +1,5 @@
 let video;
-let densidad = "@#%+^-`";
+let densidad = "@#%+^-` ";
 let columnas, filas;
 let canvas;
 
@@ -19,6 +19,8 @@ const formulario_input = formulario.querySelectorAll(".formulario_input");
 const herramientas_imagen = document.querySelector("#herramientas_imagen");
 const toggle_video_fondo = document.querySelector("#toggle_video_fondo");
 const toggle_color_video_filtro = document.querySelector("#toggle_color_video_filtro");
+const toggle_animar_brillo = document.querySelector("#animacion_brillo");
+const toggle_alternar_colores = document.querySelector("#toggle_alternar_colores");
 
 // efecto
 const color_efecto = document.querySelector("#input_color");
@@ -78,10 +80,21 @@ select.addEventListener("change", (event)=>{
   usarCamara(event.target.value);
 })
 
+//animacion
+let velocidad_anim = 30 / 8;
+let ultimoCambio = 0;
+let intervaloSegundos = 3;
+let bandera = true;
+let colores = ["#ff40f2", "#0ad014", "#ffff25", "#3744ff"]; // paleta de colores
+let indiceColor = 0; // empieza en el primer color
+let colorActual = colores[indiceColor];
+
 
 function setup() {
   actualizarCanvas();
   noStroke();
+  let bi = 0;
+  frameRate(30);
 }
 
 function draw() {
@@ -104,11 +117,23 @@ function draw() {
     tipografia = "Yarndings 12";
   } 
 
+
   textSize(escala*tamano_texto.value);
   textFont(tipografia);
-  textStyle(BOLD);
   textAlign(CENTER, CENTER);
 
+  if(input_grosor.value == 0){
+    textStyle(NORMAL);
+  }else if(input_grosor.value == 1){
+    textStyle(BOLD);
+  }else if(input_grosor.value == 2){
+    textStyle(ITALIC);
+  }else if(input_grosor.value == 3){
+    textStyle(BOLDITALIC);
+  }
+  // console.log(input_grosor.value);
+  
+ 
   const nuevaEscala = input_densidad.value;
   densidad = input_caracteres.value;
 
@@ -135,8 +160,20 @@ function draw() {
       
       let avg = ((r + g + b) / 3);
 
-      //brillo
-      avg = avg * input_brillo.value;
+      if(toggle_animar_brillo.checked == true){
+        
+        let brillo = (frameCount % (velocidad_anim * 10)) / velocidad_anim;
+        if(brillo > 5){
+          brillo = 10 - brillo;
+        }
+        //brillo
+        avg = avg * brillo;
+        input_brillo.disabled = true;
+      } else {
+        avg = avg * input_brillo.value;
+        input_brillo.disabled = false;
+      }
+      
       //contraste
       avg = ((avg - 128)* input_contraste.value) + 128;
 
@@ -151,6 +188,42 @@ function draw() {
       const color_con_alpha = color(hex);
       color_con_alpha.setAlpha(alpha);
       
+      
+      if(toggle_alternar_colores.checked == true){
+        let tiempoActual = millis();
+        color_fondo.value = colorActual;
+        color_efecto.value = colorActual;
+        
+
+        if(tiempoActual - ultimoCambio >= intervaloSegundos * 1000){
+          console.log("alternar");
+          if(bandera){
+            toggle_video_fondo.checked = false;
+            toggle_color_video_filtro.checked = true;
+            tamano_texto.value = random(4, 9);
+            input_tipografia.value = random(1, 9);
+
+            colorActual = colores[indiceColor];
+            indiceColor++;
+            if(indiceColor>=colores.length){
+              indiceColor = 0;
+            }
+            
+            bandera = false;
+          } else{
+            toggle_video_fondo.checked = true
+            toggle_color_video_filtro.checked = false;
+            tamano_texto.value = random(1, 4);
+            input_tipografia.value = random(1,9);
+            bandera = true;
+          }
+          
+
+          ultimoCambio = tiempoActual;
+        }
+      } else{
+        
+      }
 
       if(toggle_color_video_filtro.checked == true){
         const video_hex = color(r,g,b);
@@ -175,7 +248,7 @@ function draw() {
       //   fill(c2);
       // }
 
-      const x = i*escala + escala /2;
+      const x = i * escala + escala /2;
       const y = j*escala + escala /2;
       text(c, x, y);
     }
